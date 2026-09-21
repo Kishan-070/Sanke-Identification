@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Snake Identifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Snake Identifier</h1>
+        <h3>Identify Snake Species and Types </h3>
+
+        <div class="card">
+            <form method="POST" enctype="multipart/form-data" onsubmit="showLoader()">
+                <input type="file" name="image" required><br>
+                <button type="submit"> FIND </button>
+            </form>
+        </div>
+
+        {% if image and predictions %}
+        <div class="main-row">
+
+            <!-- LEFT: Image Card -->
+            <div class="card column">
+                <h3>Uploaded Image</h3>
+                <img src="{{ url_for('static', filename='uploads/' + image) }}">
+                <p class="result-text">Snake = {{ predictions[0][0] }}</p>
+            </div>
+
+            <!-- RIGHT: stacked cards -->
+            <div class="right-column">
+
+                <!-- Prediction Card -->
+                <div class="card small-card">
+                    <h3>Top Predictions</h3>
+                    <ul class="prediction-list">
+                        {% for label, score in predictions %}
+                        <li class="{% if loop.index == 1 %}top{% endif %}">
+                            {{ label }} - {{ "%.4f"|format(score) }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- Snake Details BELOW predictions -->
+                {% if info %}
+                <div class="card small-card">
+                    <h3>Snake Details</h3>
+                    <ul style="text-align: left;">
+                        {% for key, value in info.items() %}
+                        <li><b>{{ key }}:</b> {{ value }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+            </div>
+
+        </div>
+        {% endif %}
+
+    </div>
+
+    <div id="loader" class="loader"></div>
+</body>
+<script>
+    function showLoader() {
+        document.getElementById("loader").style.display = "block";
+    }
+</script>
+
+</html>

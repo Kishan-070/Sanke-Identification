@@ -1,0 +1,135 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #74ebd5, #ACB6E5);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.card {
+    background: white;
+    width: 420px;
+    margin: 15px auto;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+h1 {
+    color: #333;
+}
+
+input[type="file"] {
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #45a049;
+    font-size: 1.05em;
+}
+
+img {
+    width: 280px;
+    margin-top: 8px;
+    border-radius: 10px;
+}
+
+.prediction-list {
+    text-align: left;
+    margin-top: 15px;
+}
+
+.prediction-list li {
+    margin: 5px 0;
+}
+
+.top {
+    color: green;
+    font-weight: bold;
+}
+
+/* 🔥 FIXED LAYOUT */
+.main-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+    max-width: 900px;      
+    margin: 0 auto;      
+}
+
+/* Right side stacked */
+.right-column {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Smaller cards on right */
+.small-card {
+    width: 300px;
+}
+
+/* Left image card */
+.column {
+    width: 400px;
+}
+
+.result-text {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #238b13;
+}
+
+.loader {
+    display: none;
+    margin: 20px auto;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #4CAF50;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 📱 Mobile */
+@media (max-width: 600px) {
+    .main-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .small-card {
+        width: 400px;
+    }
+
+    .column {
+        width: 100%;
+    }
+
+    .card {
+        width: 90%;
+    }
+}
