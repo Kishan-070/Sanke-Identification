@@ -20,6 +20,15 @@ The system uses **MobileNetV2 with PyTorch** to extract visual features from sna
 * 📁 Supports multiple snake species
 
 ---
+## 📸 Website Preview
+
+###  Website Preview and Prediction Results
+
+![Snake Identification System](screenshots/image1.png)
+![Snake Identification System](screenshots/image2.png)
+
+
+---
 
 ## 🛠️ Tech Stack
 
